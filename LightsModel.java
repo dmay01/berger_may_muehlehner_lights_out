@@ -6,8 +6,7 @@ package berger_may_muehlehner_lights_out;
  * angeboten. Der Koordinaten Ursprung ist links oben
  * 
  * @author Daniel May
- * @version 2.0 groesse ist nun veraenderbar, min und max Size hinzugefuegt,
- *          zweiten Konstruktor hinzugefuegt
+ * @version 2.1 Methode zum Abfragen eines einzelnen Lichtes hinzugefuegt
  *
  */
 public class LightsModel {
@@ -130,5 +129,23 @@ public class LightsModel {
 			throw new IllegalArgumentException();
 		this.size = size;
 		init();
+	}
+
+	/**
+	 * Gibt den Status eines bestimmten Lichtes zurueck
+	 * 
+	 * @param x
+	 *            x Wert des Lichts von 0 bis size-1
+	 * @param y
+	 *            y Wert des Lichts von 0 bis size-1
+	 * @return ob das Licht an der betroffenen Stelle ein oder ausgeschalten ist
+	 * @throws IllegalArgumentException
+	 *             wenn der x oder y Wert ausserhalb des gueltigen Bereichs
+	 *             liegt
+	 */
+	public boolean getLight(int x, int y) throws IllegalArgumentException {
+		if (x < 0 || x > size - 1 || y < 0 || y > size - 1)
+			throw new IllegalArgumentException();
+		return lights[y][x];
 	}
 }
