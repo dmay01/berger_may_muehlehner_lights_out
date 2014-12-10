@@ -6,32 +6,49 @@ package berger_may_muehlehner_lights_out;
  * angeboten. Der Koordinaten Ursprung ist links oben
  * 
  * @author Daniel May
- * @version 1.1 init Logik veraendert; nun ist mindestens ein Licht
- *          eingeschalten
+ * @version 2.0 groesse ist nun veraenderbar, min und max Size hinzugefuegt,
+ *          zweiten Konstruktor hinzugefuegt
  *
  */
 public class LightsModel {
 
-	private static final int size = 5;
+	private static final int minSize = 3;
+	private static final int maxSize = 20;
+	private int size;
 	private boolean[][] lights;
 	private boolean win;
 
 	/**
 	 * Std Konstruktor
+	 * 
 	 */
 	public LightsModel() {
 		/*
 		 * false ist ausgeschalten; true ist eingeschalten
 		 */
-		lights = new boolean[size][size];
-		init();
-		win();
+		resize(5);
+	}
+
+	/**
+	 * Konstruktor fuer waehlbare Groesse
+	 * 
+	 * @param size
+	 *            gewuenschte Groesse
+	 * @throws IllegalArgumentException
+	 *             wenn die gewaehlte Groesse ungueltiig ist
+	 */
+	public LightsModel(int size) {
+		resize(this.size);
 	}
 
 	/**
 	 * Methode zum Inntialisieren der Buttons
+	 * 
+	 * kann auch als newGame verwendet werden, wenn die Groesse gleich bleiben
+	 * soll
 	 */
 	public void init() {
+		lights = new boolean[size][size];
 		for (int i = 0; i < lights.length; i++) {
 			for (int j = 0; j < lights[i].length; j++) {
 				lights[i][j] = false;
@@ -47,6 +64,7 @@ public class LightsModel {
 				i++;
 			}
 		}
+		win();
 	}
 
 	/**
@@ -62,9 +80,8 @@ public class LightsModel {
 	 *             liegt
 	 */
 	public void toggle(int x, int y) throws IllegalArgumentException {
-		if (x < 0 || x > size - 1 || y < 0 || y > size - 1) {
+		if (x < 0 || x > size - 1 || y < 0 || y > size - 1)
 			throw new IllegalArgumentException();
-		}
 		lights[y][x] = !lights[y][x];
 		if (x != 0)
 			lights[y][x - 1] = !lights[y][x - 1];
@@ -98,5 +115,20 @@ public class LightsModel {
 	 */
 	public boolean isWin() {
 		return win;
+	}
+
+	/**
+	 * veraendert die Groesse des Feldes ruft automatisch die init() Methode auf
+	 * 
+	 * @param size
+	 *            neue Laenge einer Spielfeldseite
+	 * @throws IllegalArgumentException
+	 *             wenn die gewuenschte Groesse ausserhalb von min und max liegt
+	 */
+	public void resize(int size) throws IllegalArgumentException {
+		if (size < minSize || size > maxSize)
+			throw new IllegalArgumentException();
+		this.size = size;
+		init();
 	}
 }
