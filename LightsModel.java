@@ -6,7 +6,8 @@ package berger_may_muehlehner_lights_out;
  * angeboten. Der Koordinaten Ursprung ist links oben
  * 
  * @author Daniel May
- * @version 1.0
+ * @version 1.1 init Logik veraendert; nun ist mindestens ein Licht
+ *          eingeschalten
  *
  */
 public class LightsModel {
@@ -33,12 +34,17 @@ public class LightsModel {
 	public void init() {
 		for (int i = 0; i < lights.length; i++) {
 			for (int j = 0; j < lights[i].length; j++) {
-				int tmp = (int) (Math.random() * 2);
-				if (tmp == 0) {
-					lights[i][j] = true;
-				} else {
-					lights[i][j] = false;
-				}
+				lights[i][j] = false;
+			}
+		}
+		int on = (int) (Math.random() * (size * size)) + 1;
+		System.out.println(on);
+		for (int i = 0; i < on;) {
+			int x = (int) (Math.random() * size);
+			int y = (int) (Math.random() * size);
+			if (!lights[y][x]) {
+				lights[y][x] = true;
+				i++;
 			}
 		}
 	}
