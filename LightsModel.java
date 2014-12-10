@@ -35,7 +35,7 @@ public class LightsModel {
 	 * @param size
 	 *            gewuenschte Groesse
 	 * @throws IllegalArgumentException
-	 *             wenn die gewaehlte Groesse ungueltiig ist
+	 *             wenn die gewaehlte Groesse ungueltig ist
 	 */
 	public LightsModel(int size) {
 		resize(this.size);
