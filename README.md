@@ -8,4 +8,4 @@ Das Team besteht aus Berger, May und Mühlehner.
 Die Aufgaben sind wie folgt verteilt:
 Berger: View
 May: Model, Protokoll
-Mühlehner: Controller
+Mühlehner: Controller, Protokoll
