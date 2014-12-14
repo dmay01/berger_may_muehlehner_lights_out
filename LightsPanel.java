@@ -48,11 +48,36 @@ public class LightsPanel extends JPanel {
 		this.add(buttons,BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Ermoeglicht das aktivieren und deaktivieren von bestimmten Lights
+	 * @param x Koordinate fuer das Array
+	 * @param y Koordinate fuer das Array
+	 * @param status an oder aus
+	 */
 	public void control(int x, int y, boolean status){
 		if(status){
 			lights[y][x].setBackground(Color.YELLOW);
 		} else {
 			lights[y][x].setBackground(Color.BLACK);
 		}
+	}
+	
+	/**
+	 * Setzte alle Lights zurueck
+	 */
+	public void reset(){
+		for(int x=0;x<amount;x++){
+			for(int y=0;y<amount;y++){
+				lights[x][y].setBackground(Color.BLACK);
+			}
+		}
+	}
+	
+	/**
+	 * Getter fuer Lights
+	 * @return lights
+	 */
+	private JButton[][] getLight() {
+		return lights;
 	}
 }
