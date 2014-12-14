@@ -37,7 +37,7 @@ public class LightsModel {
 	 *             wenn die gewaehlte Groesse ungueltig ist
 	 */
 	public LightsModel(int size) {
-		resize(this.size);
+		resize(size);
 	}
 
 	/**
@@ -107,6 +107,8 @@ public class LightsModel {
 	}
 
 	/**
+	 * getter method for win
+	 * 
 	 * @return the win
 	 */
 	public boolean isWin() {
@@ -147,6 +149,8 @@ public class LightsModel {
 	}
 
 	/**
+	 * getter for all lights
+	 * 
 	 * @return the lights
 	 */
 	public boolean[][] getLights() {

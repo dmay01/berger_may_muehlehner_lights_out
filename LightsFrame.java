@@ -15,6 +15,11 @@ public class LightsFrame extends JFrame {
 
 	/**
 	 * Standard Konstruktor
+	 * 
+	 * @param mp
+	 *            Panel
+	 * @param header
+	 *            Titel
 	 */
 	public LightsFrame(LightsPanel mp, String header) {
 		super(header);
