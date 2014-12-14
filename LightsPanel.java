@@ -18,16 +18,19 @@ public class LightsPanel extends JPanel {
 	private static int amount = 5;
 	
 	private JButton[][] lights;
+	private JButton reset;
 	private static final long serialVersionUID = 1L;
-	private JPanel buttons;
+	private JPanel buttons, bottom;
 	private LightsController control;
 
 	public LightsPanel(LightsController controller){
 		this.control = controller;
 		buttons = new JPanel();
+		bottom = new JPanel();
 		
 		this.setLayout(new BorderLayout());
 		buttons.setLayout(new GridLayout(amount,amount,5,5));
+		bottom.setLayout(new BorderLayout());
 		
 		lights = new JButton[amount][amount];
 		
@@ -45,6 +48,12 @@ public class LightsPanel extends JPanel {
 		}
 		buttons.setBounds(20, 20, 200, 100);
 		
+		reset = new JButton("Reset");
+		reset.addActionListener(control);
+		reset.setActionCommand("reset");
+		bottom.add(reset, BorderLayout.CENTER);
+		
+		this.add(bottom, BorderLayout.SOUTH);
 		this.add(buttons,BorderLayout.CENTER);
 	}
 	
