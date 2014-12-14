@@ -23,6 +23,9 @@ public class LightsPanel extends JPanel {
 	private JPanel buttons, bottom;
 	private LightsController control;
 
+	/**
+	 * Konstruktor
+	 */
 	public LightsPanel(LightsController controller){
 		this.control = controller;
 		buttons = new JPanel();
@@ -35,6 +38,9 @@ public class LightsPanel extends JPanel {
 		lights = new JButton[amount][amount];
 		
 		
+		/*
+		 * Lights werden inizialisiert
+		 */
 		for(int x=0;x<amount;x++){
 			for(int y=0;y<amount;y++){
 				lights[x][y] = new JButton();
@@ -68,17 +74,6 @@ public class LightsPanel extends JPanel {
 			lights[y][x].setBackground(Color.YELLOW);
 		} else {
 			lights[y][x].setBackground(Color.BLACK);
-		}
-	}
-	
-	/**
-	 * Setzte alle Lights zurueck
-	 */
-	public void reset(){
-		for(int x=0;x<amount;x++){
-			for(int y=0;y<amount;y++){
-				lights[x][y].setBackground(Color.BLACK);
-			}
 		}
 	}
 	
