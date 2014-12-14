@@ -19,7 +19,7 @@ public class LightsFrame extends JFrame {
 	public LightsFrame(LightsPanel mp, String header) {
 		super(header);
 		this.add(mp);
-		this.setSize(1200, 400);
+		this.setSize(600, 600);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
