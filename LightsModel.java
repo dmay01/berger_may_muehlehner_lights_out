@@ -6,7 +6,7 @@ package berger_may_muehlehner_lights_out;
  * angeboten. Der Koordinaten Ursprung ist links oben
  * 
  * @author Daniel May
- * @version 2.1 Methode zum Abfragen eines einzelnen Lichtes hinzugefuegt
+ * @version 2.2 Javadoc fixes + getter for all lights
  *
  */
 public class LightsModel {
@@ -54,7 +54,6 @@ public class LightsModel {
 			}
 		}
 		int on = (int) (Math.random() * (size * size)) + 1;
-		System.out.println(on);
 		for (int i = 0; i < on;) {
 			int x = (int) (Math.random() * size);
 			int y = (int) (Math.random() * size);
@@ -94,9 +93,7 @@ public class LightsModel {
 	}
 
 	/**
-	 * Gibt zurueck ob man das Spiel gewonnen hat
-	 * 
-	 * @return wahr wenn das spiel gewonnen wurde
+	 * ueberprueft ob man gewonnen hat und setzt den Wert in dem Attribut win
 	 */
 	private void win() {
 		boolean tmp = true;
@@ -147,5 +144,12 @@ public class LightsModel {
 		if (x < 0 || x > size - 1 || y < 0 || y > size - 1)
 			throw new IllegalArgumentException();
 		return lights[y][x];
+	}
+
+	/**
+	 * @return the lights
+	 */
+	public boolean[][] getLights() {
+		return lights;
 	}
 }
