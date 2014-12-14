@@ -6,14 +6,64 @@ import java.awt.event.ActionListener;
 /**
  * 
  * 
- * @author
- * @version
- *
+ * @author Muehlehner Moritz
+ * @version 1.0
+ * 
  */
 public class LightsController implements ActionListener {
 
+	private LightsPanel p;
+	private LightsModel m;
+
+	/**
+	 * LightsController-Konstruktor Initialisiert die Buttons zufällig
+	 */
+	public LightsController() {
+		p = new LightsPanel(this);
+		m = new LightsModel();
+		m.init();
+		for (int i = 0; i < 5; i++) {
+			for (int a = 0; a < 5; a++) {
+				p.control(i, a, m.getLight(i, a));
+			}
+		}
+		new LightsFrame(p, "Lights Out");
+	}
+
+	/**
+	 * Main Methode
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new LightsController();
+	}
+
+	/**
+	 * ActionListener
+	 */
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO
+	public void actionPerformed(ActionEvent e) {
+		for (int y = 0; y < 5; y++) {
+			for (int x = 0; x < 5; x++) {
+				if (p.getLight()[y][x].equals(e.getSource())) {
+					m.toggle(x, y);
+					for (int i = 0; i < 5; i++) {
+						for (int a = 0; a < 5; a++) {
+							p.control(i, a, m.getLight(i, a));
+						}
+					}
+				}
+			}
+		}
+		String ac = e.getActionCommand();
+		if (ac == "reset") {
+			m.init();
+			for (int i = 0; i < 5; i++) {
+				for (int a = 0; a < 5; a++) {
+					p.control(i, a, m.getLight(i, a));
+				}
+			}
+		}
 	}
 }
