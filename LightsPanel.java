@@ -1,33 +1,29 @@
 package berger_may_muehlehner_lights_out;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  * Optische Oberflaeche des Programms
  * 
  * @author benedikt berger
  * @version 1.0
- * 
  */
 public class LightsPanel extends JPanel {
-
+	/* Groesse der Spielflaeche */
 	private static int amount = 5;
+	
+	private static final long serialVersionUID = 1L;
 
 	private JButton[][] lights;
 	private JButton reset;
-	private static final long serialVersionUID = 1L;
 	private JPanel buttons, bottom;
 	private LightsController control;
 
 	/**
 	 * Konstruktor
 	 * 
-	 * @param controller
-	 *            Controller mit der Funktion als ActionListener
+	 * @param controller Controller mit der Funktion als ActionListener
 	 */
 	public LightsPanel(LightsController controller) {
 		this.control = controller;
@@ -54,7 +50,6 @@ public class LightsPanel extends JPanel {
 				buttons.add(lights[x][y], BorderLayout.CENTER);
 			}
 		}
-		buttons.setBounds(20, 20, 200, 100);
 
 		reset = new JButton("Reset");
 		reset.addActionListener(control);
@@ -68,12 +63,9 @@ public class LightsPanel extends JPanel {
 	/**
 	 * Ermoeglicht das aktivieren und deaktivieren von bestimmten Lights
 	 * 
-	 * @param x
-	 *            Koordinate fuer das Array
-	 * @param y
-	 *            Koordinate fuer das Array
-	 * @param status
-	 *            an oder aus
+	 * @param x  Koordinate fuer das Array
+	 * @param y  Koordinate fuer das Array
+	 * @param status  an oder aus
 	 */
 	public void control(int x, int y, boolean status) {
 		if (status)
@@ -84,8 +76,8 @@ public class LightsPanel extends JPanel {
 
 	/**
 	 * Getter fuer Lights
-	 * 
-	 * @return lights
+	 * @return lights Array der Buttons
+	 * @return lights 
 	 */
 	public JButton[][] getLight() {
 		return lights;
