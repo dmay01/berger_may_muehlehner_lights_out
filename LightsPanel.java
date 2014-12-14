@@ -86,7 +86,7 @@ public class LightsPanel extends JPanel {
 	 * Getter fuer Lights
 	 * @return lights
 	 */
-	private JButton[][] getLight() {
+	public JButton[][] getLight() {
 		return lights;
 	}
 }
