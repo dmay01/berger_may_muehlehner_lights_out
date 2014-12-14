@@ -65,5 +65,8 @@ public class LightsController implements ActionListener {
 				}
 			}
 		}
+		if (m.isWin()) {
+			JOptionPane.showMessageDialog(p, "Congratulations! You won!");
+		}
 	}
 }
