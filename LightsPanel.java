@@ -12,7 +12,7 @@ import javax.swing.*;
 public class LightsPanel extends JPanel {
 	/* Groesse der Spielflaeche */
 	private static int amount = 5;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	private JButton[][] lights;
@@ -23,7 +23,8 @@ public class LightsPanel extends JPanel {
 	/**
 	 * Konstruktor
 	 * 
-	 * @param controller Controller mit der Funktion als ActionListener
+	 * @param controller
+	 *            Controller mit der Funktion als ActionListener
 	 */
 	public LightsPanel(LightsController controller) {
 		this.control = controller;
@@ -63,9 +64,12 @@ public class LightsPanel extends JPanel {
 	/**
 	 * Ermoeglicht das aktivieren und deaktivieren von bestimmten Lights
 	 * 
-	 * @param x  Koordinate fuer das Array
-	 * @param y  Koordinate fuer das Array
-	 * @param status  an oder aus
+	 * @param x
+	 *            Koordinate fuer das Array
+	 * @param y
+	 *            Koordinate fuer das Array
+	 * @param status
+	 *            an oder aus
 	 */
 	public void control(int x, int y, boolean status) {
 		if (status)
@@ -76,8 +80,9 @@ public class LightsPanel extends JPanel {
 
 	/**
 	 * Getter fuer Lights
+	 * 
 	 * @return lights Array der Buttons
-	 * @return lights 
+	 * @return lights
 	 */
 	public JButton[][] getLight() {
 		return lights;

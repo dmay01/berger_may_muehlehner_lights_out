@@ -6,7 +6,7 @@ package berger_may_muehlehner_lights_out;
  * angeboten. Der Koordinaten Ursprung ist links oben
  * 
  * @author Daniel May
- * @version 2.2 Javadoc fixes + getter for all lights
+ * @version 2.3 pattern is now always solvable
  *
  */
 public class LightsModel {
@@ -53,16 +53,15 @@ public class LightsModel {
 				lights[i][j] = false;
 			}
 		}
-		int on = (int) (Math.random() * (size * size)) + 1;
-		for (int i = 0; i < on;) {
-			int x = (int) (Math.random() * size);
-			int y = (int) (Math.random() * size);
-			if (!lights[y][x]) {
-				lights[y][x] = true;
-				i++;
+		int randomClick = 50;
+		do {
+			for (int i = 0; i < randomClick; i++) {
+				int x = (int) (Math.random() * size);
+				int y = (int) (Math.random() * size);
+				toggle(x, y);
 			}
-		}
-		win();
+			win();
+		} while (isWin());
 	}
 
 	/**
