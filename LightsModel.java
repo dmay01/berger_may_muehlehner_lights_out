@@ -60,7 +60,6 @@ public class LightsModel {
 				int y = (int) (Math.random() * size);
 				toggle(x, y);
 			}
-			win();
 		} while (isWin());
 	}
 
